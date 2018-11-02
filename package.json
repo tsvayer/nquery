@@ -7,17 +7,16 @@
     "url": "git://github.com/alibaba/nquery.git"
   },
   "scripts": {
-    "test": "make test"
+    "test": "mocha test/unit/*.js"
   },
   "engines": {
     "node": ">=0.8.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "mocha": "^5.2.0",
     "pegjs": "=0.7.0",
-    "mocha": ">=1.0.0",
-    "should":">=1.2.0" 
+    "should": ">=1.2.0"
   },
   "readmeFilename": "README.md",
   "main": "index.js",

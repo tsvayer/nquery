@@ -272,5 +272,10 @@ describe('select test',function(){
     (e.constructor === Error).should.eql(true);
   });
 
-})
-
+  it('back ticks in database identifier test', function() {
+    let sql = 'select * from `master`.`table`';
+    let ast = Parser.parse(sql);
+    ast.from[0].table.should.eql('table');
+    ast.from[0].db.should.eql('master');
+  });
+});

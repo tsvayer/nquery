@@ -309,7 +309,7 @@ module.exports = (function(){
               return {
                 ast   : ast,
                 param : params
-              } 
+              }
             })(pos0, result0[2]);
         }
         if (result0 === null) {
@@ -321,7 +321,7 @@ module.exports = (function(){
           if (result0 !== null) {
             result0 = (function(offset, ast) {
                 return {
-                  ast : ast  
+                  ast : ast
                 }
               })(pos0, result0);
           }
@@ -429,7 +429,7 @@ module.exports = (function(){
                 cur._next = tail[i][3];
                 cur = cur._next
               }
-              return head; 
+              return head;
             })(pos0, result0[0], result0[1]);
         }
         if (result0 === null) {
@@ -495,7 +495,7 @@ module.exports = (function(){
           }
           if (result0 !== null) {
             result0 = (function(offset, s) {
-                return s[2]; 
+                return s[2];
               })(pos0, result0);
           }
           if (result0 === null) {
@@ -619,7 +619,7 @@ module.exports = (function(){
                 groupby   : g,
                 orderby   : o,
                 limit     : l
-              }   
+              }
           })(pos0, result0[2], result0[4], result0[6], result0[8], result0[10], result0[12], result0[14]);
         }
         if (result0 === null) {
@@ -777,11 +777,11 @@ module.exports = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, e, alias) { 
+          result0 = (function(offset, e, alias) {
               return {
-                expr : e, 
+                expr : e,
                 as : alias
-              }; 
+              };
             })(pos0, result0[0], result0[2]);
         }
         if (result0 === null) {
@@ -1231,7 +1231,7 @@ module.exports = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_ident_name();
+        result0 = parse_ident();
         if (result0 !== null) {
           result0 = (function(offset, db) {
             return db;
@@ -1239,6 +1239,18 @@ module.exports = (function(){
         }
         if (result0 === null) {
           pos = pos0;
+        }
+        if (result0 === null) {
+          pos0 = pos;
+          result0 = parse_var_decl();
+          if (result0 !== null) {
+            result0 = (function(offset, v) {
+              return v.name;
+            })(pos0, result0);
+          }
+          if (result0 === null) {
+            pos = pos0;
+          }
         }
         return result0;
       }
@@ -1751,7 +1763,7 @@ module.exports = (function(){
                 res.unshift({
                   type  : 'number',
                   value : 0
-                });  
+                });
               } else {
                 res.push(tail[2]);
               }
@@ -2932,9 +2944,9 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, head, tail) {
               var el = {
-                type : 'expr_list'  
+                type : 'expr_list'
               }
-              var l = createExprList(head, tail, el); 
+              var l = createExprList(head, tail, el);
         
               el.value = l;
               return el;
@@ -2956,8 +2968,8 @@ module.exports = (function(){
           pos1 = pos;
           result0 = [];
           if (result0 !== null) {
-            result0 = (function(offset) { 
-                return { 
+            result0 = (function(offset) {
+                return {
                   type  : 'expr_list',
                   value : []
                 }
@@ -3249,7 +3261,7 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, left, rh) {
               if (rh == '') {
-                return left;  
+                return left;
               } else {
                 var res = null;
                 if (rh.type == 'arithmetic') {
@@ -3477,7 +3489,7 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, op, right) {
               return {
-                op    : op,   
+                op    : op,
                 right : right
               }
             })(pos0, result0[0], result0[2]);
@@ -3756,7 +3768,7 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, op, l) {
               return {
-                op    : op,  
+                op    : op,
                 right : l
               }
             })(pos0, result0[0], result0[4]);
@@ -3789,7 +3801,7 @@ module.exports = (function(){
           if (result0 !== null) {
             result0 = (function(offset, op, e) {
                 return {
-                  op    : op,  
+                  op    : op,
                   right : e
                 }
               })(pos0, result0[0], result0[2]);
@@ -3853,7 +3865,7 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, op, l) {
               return {
-                op    : op,  
+                op    : op,
                 right : l
               }
             })(pos0, result0[0], result0[4]);
@@ -3886,7 +3898,7 @@ module.exports = (function(){
           if (result0 !== null) {
             result0 = (function(offset, op, e) {
                 return {
-                  op    : op,  
+                  op    : op,
                   right : e
                 }
               })(pos0, result0[0], result0[2]);
@@ -4179,9 +4191,9 @@ module.exports = (function(){
                     pos = pos1;
                   }
                   if (result0 !== null) {
-                    result0 = (function(offset, e) { 
-                        e.paren = true; 
-                        return e; 
+                    result0 = (function(offset, e) {
+                        e.paren = true;
+                        return e;
                       })(pos0, result0[2]);
                   }
                   if (result0 === null) {
@@ -4239,9 +4251,9 @@ module.exports = (function(){
           result0 = (function(offset, tbl, col) {
               return {
                 type  : 'column_ref',
-                table : tbl, 
+                table : tbl,
                 column : col
-              }; 
+              };
             })(pos0, result0[0], result0[4]);
         }
         if (result0 === null) {
@@ -4254,7 +4266,7 @@ module.exports = (function(){
             result0 = (function(offset, col) {
                 return {
                   type  : 'column_ref',
-                  table : '', 
+                  table : '',
                   column: col
                 };
               })(pos0, result0);
@@ -4372,7 +4384,7 @@ module.exports = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, name) {
-            return name;  
+            return name;
           })(pos0, result0[0]);
         }
         if (result0 === null) {
@@ -4694,11 +4706,11 @@ module.exports = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, l) { 
+          result0 = (function(offset, l) {
             var p = {
               type : 'param',
               value: l[1]
-            } 
+            }
             //var key = 'L' + line + 'C' + column;
             //debug(key);
             //params[key] = p;
@@ -4777,9 +4789,9 @@ module.exports = (function(){
                 type : 'aggr_func',
                 name : name,
                 args : {
-                  expr : e  
-                } 
-              }   
+                  expr : e
+                }
+              }
             })(pos0, result0[0], result0[4]);
         }
         if (result0 === null) {
@@ -4858,8 +4870,8 @@ module.exports = (function(){
               return {
                 type : 'aggr_func',
                 name : name,
-                args : arg 
-              }   
+                args : arg
+              }
             })(pos0, result0[0], result0[4]);
         }
         if (result0 === null) {
@@ -4877,7 +4889,7 @@ module.exports = (function(){
         if (result0 !== null) {
           result0 = (function(offset, e) {
               return {
-                expr  : e 
+                expr  : e
               }
             })(pos0, result0);
         }
@@ -4910,7 +4922,7 @@ module.exports = (function(){
           if (result0 !== null) {
             result0 = (function(offset, d, c) {
                 return {
-                  distinct : d, 
+                  distinct : d,
                   expr   : c
                 }
               })(pos0, result0[0], result0[2]);
@@ -5003,7 +5015,7 @@ module.exports = (function(){
           result0 = (function(offset, name, l) {
               return {
                 type : 'function',
-                name : name, 
+                name : name,
                 args : l
               }
             })(pos0, result0[0], result0[4]);
@@ -5106,7 +5118,7 @@ module.exports = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, head, tail) {
-              return createList(head, tail); 
+              return createList(head, tail);
             })(pos0, result0[0], result0[1]);
         }
         if (result0 === null) {
@@ -5126,7 +5138,7 @@ module.exports = (function(){
               return {
                 type  : 'null',
                 value : null
-              };  
+              };
             })(pos0);
         }
         if (result0 === null) {
@@ -5142,11 +5154,11 @@ module.exports = (function(){
         pos0 = pos;
         result0 = parse_KW_TRUE();
         if (result0 !== null) {
-          result0 = (function(offset) { 
+          result0 = (function(offset) {
               return {
                 type  : 'bool',
                 value : true
-              };  
+              };
             })(pos0);
         }
         if (result0 === null) {
@@ -5156,11 +5168,11 @@ module.exports = (function(){
           pos0 = pos;
           result0 = parse_KW_FALSE();
           if (result0 !== null) {
-            result0 = (function(offset) { 
+            result0 = (function(offset) {
                 return {
                   type  : 'bool',
                   value : false
-                };  
+                };
               })(pos0);
           }
           if (result0 === null) {
@@ -5552,8 +5564,8 @@ module.exports = (function(){
           result0 = (function(offset, n) {
               return {
                 type  : 'number',
-                value : n 
-              }  
+                value : n
+              }
             })(pos0, result0);
         }
         if (result0 === null) {
@@ -8593,7 +8605,7 @@ module.exports = (function(){
           result0 = (function(offset, lt, op, rt, expr) {
               return {
                 type    : 'join',
-                ltable  : lt, 
+                ltable  : lt,
                 rtable  : rt,
                 op      : op,
                 on      : expr
@@ -8652,9 +8664,9 @@ module.exports = (function(){
                   pos = pos1;
                 }
                 if (result0 !== null) {
-                  result0 = (function(offset, e) { 
-                      e.paren = true; 
-                      return e; 
+                  result0 = (function(offset, e) {
+                      e.paren = true;
+                      return e;
                     })(pos0, result0[2]);
                 }
                 if (result0 === null) {
@@ -8721,7 +8733,7 @@ module.exports = (function(){
               //compatible with original func_call
               return {
                 type : 'function',
-                name : name, 
+                name : name,
                 args : {
                   type  : 'expr_list',
                   value : l
@@ -8970,7 +8982,7 @@ module.exports = (function(){
           result0 = (function(offset, l) {
             var s = [];
             for (var i = 0; i < l.length; i++) {
-              s.push(l[i][1]); 
+              s.push(l[i][1]);
             }
             return s;
           })(pos0, result0);
@@ -9098,7 +9110,7 @@ module.exports = (function(){
             operator  : op,
             left      : left,
             right     : right
-          }  
+          }
         }
       
         function createList(head, tail) {
@@ -9114,13 +9126,13 @@ module.exports = (function(){
           var exprList  = [];
           var ep;
           for (var i = 0; i < epList.length; i++) {
-            ep = epList[i]; 
+            ep = epList[i];
             //the ep has already added to the global params
             if (ep.type == 'param') {
               ep.room = room;
               ep.pos  = i;
             } else {
-              exprList.push(ep);  
+              exprList.push(ep);
             }
           }
           return exprList;
@@ -9154,11 +9166,11 @@ module.exports = (function(){
           'L' : true,
           'l' : true,
           //for not
-          'N' : true, 
-          'n' : true, 
+          'N' : true,
+          'n' : true,
           //for contains
-          'C' : true, 
-          'c' : true, 
+          'C' : true,
+          'c' : true,
         }
       
         //used for store refered parmas
